@@ -1,3 +1,60 @@
+
+//window.onload =  function(){
+//    displayQuote();
+//    
+//};
+
+
+
+window.onload = getQuote;
+
+//document.addEventListener('DOMContentLoaded', ()=>{ 
+
+const endpoint = 'https://thatsthespir.it/api';
+
+function getQuote() {
+  fetch(endpoint)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      displayQuote(data.quote);
+      
+    })
+    .catch(function () {
+      console.log("An error occurred");
+    });
+}
+
+
+function displayQuote(quote) {
+    const quoteText = document.querySelector('.quote-text'); //select quote-text div
+    quoteText.textContent = quote; //write quote in quote-text div
+}
+
+
+
+//function myfunciop(){
+//    getQuote;
+//    displayAuthor
+//    getAuthor;
+//    displayQuote
+//}
+//window.onload = myfunciop();
+////});
+
+//window.onload = start;
+//function start(){
+//    getQuote();
+//    getAuthor();
+//}
+
+
+
+
+
+
+
 //window.onload = myFunction;
 //
 //function myFunction() {
@@ -19,23 +76,47 @@
 
 
 
-//--------------------------
-document.addEventListener('DOMContentLoaded', ()=>{ 
-const Url = 'https://thatsthespir.it/api';
+//  async function getData() 
+//        {
+//            //await the response of the fetch call
+//           let response = await fetch('https://thatsthespir.it/api');
+//            //proceed once the first promise is resolved.
+//           let data = await response.json()
+//            //proceed only when the second promise is resolved
+//            return data;
+//        }
+////call getData function
+//getData()
+//.then(data => console.log(data));
 
-fetch(Url)
-.then(data=>{return data.json()})
-.then(res=>{console.log(res)})
 
 
-const blockQuote = document.createElement('blockquote');
-document.body.appendChild(blockQuote);
+//fetch('https://thatsthespir.it/api')
+//      .then(response => response.json())
+//      .then(json => {
+//        var radr = JSON.stringify(json)
+//        document.getElementById('test').innerHTML = radr;
+//      });
 
-blockQuote.setAttribute("id", "quote");
-    
-    
-});
-    
+
+
+//----------working code console log----------------
+//document.addEventListener('DOMContentLoaded', ()=>{ 
+//const Url = 'https://thatsthespir.it/api';
+//
+//fetch(Url)
+//.then(data=>{return data.json()})
+//.then(res=>{console.log(res)})
+//
+//
+//const blockQuote = document.createElement('blockquote');
+//document.body.appendChild(blockQuote);
+//
+//blockQuote.setAttribute("id", "quote");
+////    
+////    
+//});
+ //-------------------------   
     
     
     
